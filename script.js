@@ -59,19 +59,11 @@ btnNao.addEventListener('click', () => {
 });
 
 function enviarResposta(nome, confirmou) {
-  const url = "https://docs.google.com/forms/d/e/1FAIpQLSdJCLIqUih5Zul9SvPPkhbHPEZJQ0TBuloLIgvmIe1WN_A5ZA/formResponse";
+  // Aqui você pode substituir pelo envio real para o backend/banco de dados
+  console.log('Enviando dados:', { nome, confirmou });
 
-  const formData = new FormData();
-  formData.append("entry.2107812648", nome); // Campo Nome
-  formData.append("entry.237440337", confirmou ? "Confirmado" : "Não Confirmado"); // Campo Confirmação
-
-  fetch(url, {
-    method: "POST",
-    mode: "no-cors",
-    body: formData
-  }).then(() => {
-    console.log("Resposta enviada com sucesso para o Google Forms!");
-  }).catch(() => {
-    console.error("Erro ao enviar resposta para o Google Forms.");
-  });
+  // Simulação de sucesso após 1.2s
+  setTimeout(() => {
+    console.log('Resposta registrada com sucesso!');
+  }, 1200);
 }
