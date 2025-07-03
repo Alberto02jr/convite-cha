@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Convite de Casamento - Tema Grego Detalhado</title>
+<link href="https://fonts.googleapis.com/css2?family=Dancing+Script&display=swap" rel="stylesheet" />
+<link rel="stylesheet" href="style.css" />
+</head>
+<body>
+
+<div class="convite" role="main" aria-label="Convite de Casamento">
+
+  <!-- Moldura detalhada com colunas e meandro -->
+  <div class="moldura"></div>
+
+  <!-- Fundo mármore sutil -->
+  <div class="fundo-marbre"></div>
+
+  <header>
+    <h1>Alberto Junio &amp; Laysa Ribeiro</h1>
+    <h2>Você está convidado(a) para o nosso Chá de panela!</h2>
+  </header>
+
+  <section class="video-area" aria-label="Vídeo introdutório do convite">
+    <video autoplay muted loop playsinline>
+      <source src="video/video 2.mp4" type="video/mp4" />
+      Seu navegador não suporta o elemento de vídeo.
+    </video>
+    <div class="overlay-video"></div>
+  </section>
+
+  <section class="galeria" aria-label="Galeria de fotos do casal">
+  <div class="galeria-slider">
+    <img src="imagens/WhatsApp Image 1.jpg" alt="Foto do casal 1" />
+    <img src="imagens/WhatsApp Image 2.jpg" alt="Foto do casal 2" />
+    <img src="imagens/WhatsApp Image 3.jpg" alt="Foto do casal 3" />
+    <img src="imagens/WhatsApp Image 4.jpg" alt="Foto do casal 4" />
+    <img src="imagens/WhatsApp Image 5.jpg" alt="Foto do casal 5" />
+    <img src="imagens/WhatsApp Image 6.jpg" alt="Foto do casal 6" />
+    <img src="imagens/WhatsApp Image 7.jpg" alt="Foto do casal 7" />
+  </div>
+</section>
+
+
+  <section class="confirmacao">
+    <p><strong>Data:</strong> 26 de julho de 2025 </p>
+    <p><strong>Local:</strong> Rua Dom Bosco, QD 01- lote, Bairro Jardim aurora</p>
+
+    <form id="formConfirmacao" aria-label="Formulário de confirmação de presença" onsubmit="return false;">
+      <input
+        type="text"
+        id="nome"
+        name="nome"
+        placeholder="Digite seu nome completo"
+        required
+        aria-required="true"
+        maxlength="40"
+        autocomplete="off"
+      />
+
+      <div class="botoes" role="group" aria-label="Confirmação de presença">
+        <button type="button" id="btnSim" aria-pressed="false">Confirmo Presença</button>
+        <button type="button" id="btnNao" aria-pressed="false">Não Poderei Ir</button>
+      </div>
+    </form>
+    <div id="mensagem" role="alert" aria-live="polite"></div>
+  </section>
+</div>
+<div class="pomba" aria-label="Pomba voando">
+  <div class="corpo"></div>
+  <div class="asa"></div>
+  <div class="cabeca">
+    <div class="olho"></div>
+    <div class="bico"></div>
+  </div>
+</div>
+
+<script src="script.js"></script>
+</body>
+</html>
