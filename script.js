@@ -17,9 +17,9 @@ setInterval(() => {
   mostrarImagem(index);
 }, 5000);
 
-// Códigos dos campos do Google Forms
-const ENTRY_NOME = 'entry.1447916246';
-const ENTRY_RESPOSTA = 'entry.1369510849';
+// Códigos reais do Google Forms (SEU formulário)
+const ENTRY_NOME = 'entry.1481871137';
+const ENTRY_RESPOSTA = 'entry.992273248';
 
 // Elementos do formulário
 const form = document.getElementById('formConfirmacao');
@@ -70,7 +70,7 @@ function enviarResposta(nome, confirmou) {
   data.append(ENTRY_NOME, nome);
   data.append(ENTRY_RESPOSTA, confirmou ? 'Sim' : 'Não');
 
-  fetch('https://docs.google.com/forms/d/e/1FAIpQLSdLOzWySzzRj8GgM8ZYOKqbApXxGeOZJ2QR51LmwyGmt_1rBg/formResponse', {
+  fetch('https://docs.google.com/forms/d/e/1FAIpQLSdJCLIqUih5Zul9SvPPkhbHPEZJQ0TBuloLIgvmIe1WN_A5ZA/formResponse', {
     method: 'POST',
     mode: 'no-cors',
     body: data,
