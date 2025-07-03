@@ -17,11 +17,8 @@ setInterval(() => {
   mostrarImagem(index);
 }, 5000);
 
-// Códigos reais do Google Forms (SEU formulário)
-const ENTRY_NOME = 'entry.1481871137';
-const ENTRY_RESPOSTA = 'entry.992273248';
 
-// Elementos do formulário
+// Código do formulário de confirmação
 const form = document.getElementById('formConfirmacao');
 const nomeInput = document.getElementById('nome');
 const btnSim = document.getElementById('btnSim');
@@ -38,7 +35,6 @@ function resetBotoes() {
 btnSim.addEventListener('click', () => {
   if (!nomeInput.value.trim()) {
     mensagem.textContent = 'Por favor, insira seu nome para confirmar presença.';
-    mensagem.style.color = 'red';
     nomeInput.focus();
     return;
   }
@@ -46,14 +42,12 @@ btnSim.addEventListener('click', () => {
   btnSim.setAttribute('aria-pressed', 'true');
   btnSim.classList.add('ativo');
   mensagem.textContent = `Obrigado, ${nomeInput.value.trim()}! Sua presença foi confirmada.`;
-  mensagem.style.color = 'green';
   enviarResposta(nomeInput.value.trim(), true);
 });
 
 btnNao.addEventListener('click', () => {
   if (!nomeInput.value.trim()) {
     mensagem.textContent = 'Por favor, insira seu nome para enviar a resposta.';
-    mensagem.style.color = 'red';
     nomeInput.focus();
     return;
   }
@@ -61,22 +55,23 @@ btnNao.addEventListener('click', () => {
   btnNao.setAttribute('aria-pressed', 'true');
   btnNao.classList.add('ativo');
   mensagem.textContent = `Obrigado, ${nomeInput.value.trim()}. Sentiremos sua falta.`;
-  mensagem.style.color = 'green';
   enviarResposta(nomeInput.value.trim(), false);
 });
 
 function enviarResposta(nome, confirmou) {
-  const data = new FormData();
-  data.append(ENTRY_NOME, nome);
-  data.append(ENTRY_RESPOSTA, confirmou ? 'Sim' : 'Não');
+  const url = "https://docs.google.com/forms/d/e/1FAIpQLSdJCLIqUih5Zul9SvPPkhbHPEZJQ0TBuloLIgvmIe1WN_A5ZA/formResponse";
 
-  fetch('https://docs.google.com/forms/d/e/1FAIpQLSdJCLIqUih5Zul9SvPPkhbHPEZJQ0TBuloLIgvmIe1WN_A5ZA/formResponse', {
-    method: 'POST',
-    mode: 'no-cors',
-    body: data,
+  const formData = new FormData();
+  formData.append("entry.2107812648", nome); // Campo Nome
+  formData.append("entry.237440337", confirmou ? "Confirmado" : "Não Confirmado"); // Campo Confirmação
+
+  fetch(url, {
+    method: "POST",
+    mode: "no-cors",
+    body: formData
   }).then(() => {
-    console.log('Resposta registrada com sucesso!');
+    console.log("Resposta enviada com sucesso para o Google Forms!");
   }).catch(() => {
-    console.error('Erro ao enviar a resposta.');
+    console.error("Erro ao enviar resposta para o Google Forms.");
   });
 }
