@@ -1,5 +1,5 @@
 // Controle do slideshow da galeria
-const imagens = document.querySelectorAll('.galeria img');
+const imagens = document.querySelectorAll('.galeria-slider img');
 let index = 0;
 
 function mostrarImagem(i) {
@@ -8,15 +8,7 @@ function mostrarImagem(i) {
   });
 }
 
-// Mostra a primeira imagem assim que a página carrega
-mostrarImagem(index);
-
-// Troca a imagem a cada 5 segundos
-setInterval(() => {
-  index = (index + 1) % imagens.length;
-  mostrarImagem(index);
-}, 5000);
-
+// (Opcional) Se quiser slideshow automático, pode usar setInterval ou deixar a animação CSS que você já tem
 
 // Código do formulário de confirmação
 const form = document.getElementById('formConfirmacao');
@@ -43,6 +35,10 @@ btnSim.addEventListener('click', () => {
   btnSim.classList.add('ativo');
   mensagem.textContent = `Obrigado, ${nomeInput.value.trim()}! Sua presença foi confirmada.`;
   enviarResposta(nomeInput.value.trim(), true);
+
+  // Abre o seu Google Forms em nova aba
+  const urlGoogleForms = 'https://docs.google.com/forms/d/e/1FAIpQLSdJCLIqUih5Zul9SvPPkhbHPEZJQ0TBuloLIgvmIe1WN_A5ZA/viewform?usp=header';
+  window.open(urlGoogleForms, '_blank');
 });
 
 btnNao.addEventListener('click', () => {
